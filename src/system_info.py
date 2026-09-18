@@ -5,6 +5,9 @@ Students should complete the missing implementations below.
 
 from __future__ import annotations
 
+import platform
+import sys
+
 
 def main() -> None:
     """Run a small demonstration of the environment report workflow."""
@@ -21,28 +24,36 @@ def main() -> None:
 
 def get_python_version() -> str:
     """Return the running Python version."""
-    # TODO: implement this function.
-    raise NotImplementedError("Implement get_python_version().")
+    return platform.python_version()
 
 
 def get_platform_name() -> str:
     """Return the operating-system/platform name."""
-    # TODO: implement this function.
-    raise NotImplementedError("Implement get_platform_name().")
+    return platform.system()
 
 
 def normalize_name(name: str) -> str:
     """Return a normalized name suitable for display."""
-    # TODO: implement this function.
-    raise NotImplementedError("Implement normalize_name().")
+    if not isinstance(name, str):
+        raise TypeError("name must be a string")
+    normalized = name.strip()
+    if not normalized:
+        raise ValueError("name cannot be empty after stripping whitespace")
+    return normalized
 
 
 def build_environment_report(name: str) -> dict:
     """
     Return a dictionary describing the execution environment.
     """
-    # TODO: implement this function.
-    raise NotImplementedError("Implement build_environment_report().")
+    if not isinstance(name, str):
+        raise TypeError("name must be a string")
+    normalized = normalize_name(name)
+    return {
+        "name": normalized,
+        "python_version": get_python_version(),
+        "platform": get_platform_name(),
+    }
 
 
 if __name__ == "__main__":
