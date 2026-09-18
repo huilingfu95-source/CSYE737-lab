@@ -6,7 +6,6 @@ Students should complete the missing implementations below.
 from __future__ import annotations
 
 import platform
-import sys
 
 def main() -> None:
     """Run a small demonstration of the environment report workflow."""
