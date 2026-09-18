@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import platform
 
+
 def main() -> None:
     """Run a small demonstration of the environment report workflow."""
     try:
